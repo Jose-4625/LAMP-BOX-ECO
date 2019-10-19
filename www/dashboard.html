@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-1.2.0.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  <style media="screen">
+  body{
+    background-color: #000000;
+  }
+    #master{
+      box-shadow: 0 32px 128px 0 rgba(255, 255, 255, 1), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+      text-align: center;
+      background-color: #293AF9;
+      border-radius: 25px;
+      width: 100%;
+
+    }
+    .fill{
+      min-height: 100%;
+      height: 100%;
+      width: 100;
+    }
+    .table-responsive{
+      box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 1), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+      text-align: center;
+      background-color: #99D4FF;
+      border-radius: 25px;
+    }
+    h1{
+      text-align: center;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    }
+    td{
+      background-color: #99ffee;
+    }
+    #tester{
+      background-color: #ffffff;
+      box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 1), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+    }
+    button:hover{
+      box-shadow: 0 16px 32px 0 rgba(255,255,255, 1), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+    }
+    button{
+      width: 100%;
+    }
+  </style>
+
+  <br>
+  <div class="container fill" id ="master">
+    <h1>LAMP BOX DASHBOARD</h1>
+    <br>
+    <div id="tester" style="width:690px;height:400px;"></div>
+    <script>
+      var dataX = []
+      var dataY = []
+      if(typeof(EventSource) !== 'undefined') {
+        const source = new EventSource('http://' + window.location.hostname + '/temp');
+        source.onmessage = function(e) {
+            dataY += e.data;
+            dataX += 1
+        };
+      } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+      }
+      TESTER = document.getElementById('tester');
+    	Plotly.plot( TESTER, [{
+    	x: [1, 2, 3, 4, 5],
+    	y: [1, 2, 4, 8, 16] },
+      {
+    	x: [1, 2, 3, 4, 5],
+    	y: [4, 8, 16, 32, 64] }],  {
+        title:'Temperature',
+      },{
+        margin: {t:0}
+      });
+
+    </script>
+    <script type="text/javascript">
+    var rowNum = 0
+    var maxRow = 0
+    function addRow(TableID){
+      if (maxRow > rowNum){
+        rowNum = maxRow
+      }
+      let tabRef = document.getElementById(TableID);
+      let newRow = tabRef.insertRow(-1);
+      newRow.setAttribute('id', rowNum);
+      var newCell = newRow.insertCell(0);
+      var newText = document.createTextNode(rowNum + 1);
+      newCell.appendChild(newText);
+      var newCell = newRow.insertCell(1);
+      var newText = document.createTextNode('new data');
+      newCell.appendChild(newText);
+      var newCell = newRow.insertCell(2);
+      var newText = document.createTextNode('new data');
+      newCell.appendChild(newText);
+      var newCell = newRow.insertCell(3);
+      var newText = document.createTextNode('new data');
+      newCell.appendChild(newText);
+      //var newCell = newRow.insertCell(4);
+      var newText = document.createElement('td');
+      //console.log(newRow)
+      newText.innerHTML = '<button id="'+ rowNum +'" type="button" class="btn btn-danger" onclick="deleteRow(this)"> - </button>'
+      newRow.appendChild(newText);
+      rowNum += 1
+    }
+    function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      var tab = document.getElementById("table");
+      tab.deleteRow(i);
+      rowNum = 0
+      for (var i = 0, row; row = tab.rows[i]; i++){
+        if(i != 0){
+          row.setAttribute('id', rowNum);
+          row.cells[0].innerHTML = rowNum + 1;
+          rowNum += 1;
+          maxRow = rowNum;
+          console.log(row)
+        }
+
+      }
+
+    }
+    function startProcess(){
+      var json = '{';
+      var otArr = [];
+      var tbl2 = $('#table tr').each(function(i) {
+         x = $(this).children();
+         var itArr = [];
+         x.each(function() {
+            itArr.push('"' + $(this).text() + '"');
+         });
+         otArr.push('"' + i + '": [' + itArr.join(',') + ']');
+      })
+      json += otArr.join(",") + '}'
+      console.log(json);
+      return json;
+    }
+
+    </script>
+
+      <!-- Trigger the modal with a button -->
+      <br>
+      <br>
+      <br>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Header</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addRow('table')">Save</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    <script>
+  $(document).ready(function(){
+    $("#myBtn").click(function(){
+      $("#myModal").modal();
+    });
+  });
+  </script>
+
+    <div class="table-responsive">
+      <table class="table" id="table">
+        <thead>
+          <button id="myBtn" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Routine</button>
+
+          <tr>
+            <th>Routine #</th>
+            <th>Temp min</th>
+            <th>Temp Max</th>
+            <th>runtime</th>
+            <th>Control</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+
+      </tbody>
+
+      </table>
+      <button type="button" class="btn-lg btn-success" data-dismiss="modal" id="start" onclick="startProcess()">START</button>
+    </div>
+
+  <br>
+  </div>
+
+
+  <script src="bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
