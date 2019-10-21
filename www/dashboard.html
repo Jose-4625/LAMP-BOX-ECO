@@ -47,13 +47,16 @@
     button{
       width: 100%;
     }
+    .close{
+      width: 10%;
+    }
   </style>
 
   <br>
   <div class="container fill" id ="master">
     <h1>LAMP BOX DASHBOARD</h1>
     <br>
-    <div id="tester" style="width:690px;height:400px;"></div>
+    <div id="tester" style="width:100%;height:400px;"></div>
     <script>
       var dataX = []
       var dataY = []
@@ -155,11 +158,11 @@
           <div class="modal-content">
 
             <div class="modal-header">
-              <h4 class="modal-title">Modal Header</h4>
+              <h4 class="modal-title">Create Routine</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              <p>Some text in the modal.</p>
+              <p>Temperature: <input type="number" name="Temperature" value=""></p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
