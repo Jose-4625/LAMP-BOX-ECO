@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://cdn.plot.ly/plotly-1.2.0.min.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../static/js/plotly-latest.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="../static/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <style media="screen">
@@ -17,6 +17,9 @@
       border-radius: 25px;
       width: 100%;
 
+    }
+    .modal-body{
+      text-align: left;
     }
     .fill{
       min-height: 100%;
@@ -85,24 +88,31 @@
     <script type="text/javascript">
     var rowNum = 0
     var maxRow = 0
-    function addRow(TableID){
+    function addRow(TableID, tempMax, runtime, cycle){
       if (maxRow > rowNum){
         rowNum = maxRow
       }
       let tabRef = document.getElementById(TableID);
+      tempMax = document.getElementById(tempMax).value;
+      runtime = document.getElementById(runtime).value;
+      cycle = document.getElementById(cycle);
+      let cycleData = cycle.options[cycle.selectedIndex].value;
       let newRow = tabRef.insertRow(-1);
       newRow.setAttribute('id', rowNum);
       var newCell = newRow.insertCell(0);
       var newText = document.createTextNode(rowNum + 1);
       newCell.appendChild(newText);
       var newCell = newRow.insertCell(1);
-      var newText = document.createTextNode('new data');
+      var newText = document.createTextNode(tempMax);
       newCell.appendChild(newText);
       var newCell = newRow.insertCell(2);
-      var newText = document.createTextNode('new data');
+      var newText = document.createTextNode(tempMax);
       newCell.appendChild(newText);
       var newCell = newRow.insertCell(3);
-      var newText = document.createTextNode('new data');
+      var newText = document.createTextNode(runtime);
+      newCell.appendChild(newText);
+      var newCell = newRow.insertCell(4);
+      var newText = document.createTextNode(cycleData);
       newCell.appendChild(newText);
       //var newCell = newRow.insertCell(4);
       var newText = document.createElement('td');
@@ -129,19 +139,32 @@
 
     }
     function startProcess(){
-      var json = '{';
-      var otArr = [];
+      var TempMinArr = [], TempMaxArr = [], runtimeArr = [], cycleArr = [];
       var tbl2 = $('#table tr').each(function(i) {
          x = $(this).children();
-         var itArr = [];
-         x.each(function() {
-            itArr.push('"' + $(this).text() + '"');
-         });
-         otArr.push('"' + i + '": [' + itArr.join(',') + ']');
-      })
-      json += otArr.join(",") + '}'
-      console.log(json);
-      return json;
+         if (x[0].tagName != "TH"){
+           TempMinArr.push(parseInt(x[1].innerHTML));
+           TempMaxArr.push(parseInt(x[2].innerHTML));
+           runtimeArr.push(parseInt(x[3].innerHTML));
+           cycleArr.push(x[4].innerHTML);
+
+         }
+
+       })
+
+      var json = {
+        "subRoutine":{
+          "idx": "1",
+          "minTemp": TempMinArr,
+          "maxTemp": TempMaxArr ,
+          "dur":  runtimeArr ,
+          "cycle":  cycleArr
+        }
+      }
+      str = JSON.stringify(json)
+      console.log(str)
+      console.log(json)
+      return String(json);
     }
 
     </script>
@@ -162,12 +185,19 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              <p>Temperature: <input type="number" name="Temperature" value=""></p>
+              <p>Temperature: <input type="number" id="Temperature" value=""></p>
+              <p>Runtime: <input type="number" id="Runtime" value=""></p>
+              <p>Cycle?:
+              <select id='Cycle'>
+                <option value="cycleOn">Yes</option>
+                <option value="cycleOff">No</option>
+              </select></p>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
-              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addRow('table')">Save</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addRow('table','Temperature','Runtime','Cycle')">Save</button>
             </div>
           </div>
 
@@ -192,7 +222,8 @@
             <th>Routine #</th>
             <th>Temp min</th>
             <th>Temp Max</th>
-            <th>runtime</th>
+            <th>Runtime</th>
+            <th>Cycle</th>
             <th>Control</th>
           </tr>
         </thead>
@@ -208,6 +239,6 @@
   </div>
 
 
-  <script src="bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="../static/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
