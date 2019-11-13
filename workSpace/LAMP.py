@@ -1,29 +1,35 @@
-from microWebSrv import MicroWebSrv
-try:
-    from esp32  import raw_temperature, hall_sensor
-    import uasyncio
-except:
-    from dummyESP32 import raw_temperature, hall_sensor
-    import asyncio
-#from os import urandom
-ESP_temp = raw_temperature()
-print("Current ESP32 Temp: " + str(ESP_temp))
+from MicroWebSrv2 import *
+from time import sleep
 
-async def _httpHandlerTEMPGet(httpClient, httpResponse):
-  try:
-    ESP_temp = raw_temperature()
-    ESP_hall  = hall_sensor()
-    print(ESP_temp, 'Temp')
-    print(ESP_hall, 'Hall')
-    data = [ESP_temp, ESP_hall]
-  except:
-    data = "Cannot read Temp sensor"
-  httpResponse.WriteResponseOk(
-    headers = ({'Cache-Control': 'no-cache'}),
-    contentType = 'text/event-stream',
-    contentCharset = 'UTF-8',
-    content = data
-  )
-routeHandlers = [("/temp", "GET", _httpHandlerTEMPGet)]
-srv = MicroWebSrv(routeHandlers=routeHandlers, webPath='/www/')
-srv.Start(threaded=False)
+@WebRoute(GET, '/')
+def RequestTest(microWebSrv2, request):
+    content = "./www/index.html.gz"
+
+    request.Response.SetHeader('Accept-Encoding','gzip, deflate')
+    request.Response.SetHeader('Content-Encoding','gzip')
+    request.Response.SetHeader('Content-Type','application/x-gzip')
+    request.Response.ReturnFile(content)
+
+@WebRoute(GET, '/temp')
+def RequestTest2(microWebSrv2, request):
+    request.Response.ReturnOkJSON({
+        'ClientAddr': request.UserAddress,
+        'Accept': request.Accept,
+        'UserAgent': request.UserAgent
+    })
+
+
+mws = MicroWebSrv2()
+mws.SetEmbeddedConfig()
+mws.BindAddress = ('127.0.0.1',3000)
+mws.StartManaged()
+
+
+try :
+    while True :
+        sleep(60)
+except KeyboardInterrupt :
+    print()
+    mws.Stop()
+    print('Bye')
+    print()
