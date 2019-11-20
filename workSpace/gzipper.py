@@ -7,13 +7,15 @@ for i in os.listdir(path):
         with open(path + i, 'rb') as f_in:
             with gzip.open(path + i + ".gz", 'wb') as f_out:
                 shutil.copyfileobj(f_in, f_out)
-pathjs = path + '/static/js/'
+            with gzip.open(path + i + ".jgz", 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+pathjs = path
 for i in os.listdir(pathjs):
     if i.endswith('.js'):
         with open(pathjs + i, 'rb') as f_in:
             with gzip.open(pathjs + i + ".gz", 'wb') as f_out:
                 shutil.copyfileobj(f_in, f_out)
-pathcss = path + '/static/css/'
+pathcss = path
 for i in os.listdir(pathcss):
     if i.endswith('.css'):
         with open(pathcss + i, 'rb') as f_in:

@@ -42,7 +42,6 @@ def RequestTestPost(microWebSrv2, request) :
 @WebRoute(POST, '/test-post', name='TestPost2/2')
 def RequestTestPost(microWebSrv2, request) :
     data = request.GetPostedURLEncodedForm()
-    print(data)
     try :
         firstname = data['firstname']
         lastname  = data['lastname']
@@ -155,7 +154,7 @@ wsMod.OnWebSocketAccepted = OnWebSocketAccepted
 
 # Instanciates the MicroWebSrv2 class,
 mws2 = MicroWebSrv2()
-mws2.BindAddress = ('127.0.0.1', 3000)
+
 # SSL is not correctly supported on MicroPython.
 # But you can uncomment the following for standard Python.
 # mws2.EnableSSL( certFile = 'SSL-Cert/openhc2.crt',
@@ -166,19 +165,23 @@ mws2.SetEmbeddedConfig()
 
 # All pages not found will be redirected to the home '/',
 mws2.NotFoundURL = '/'
+mws2.BindAddress = ('127.0.0.1',3000)
 
 # Starts the server as easily as possible in managed mode,
 mws2.StartManaged()
 
 # Main program loop until keyboard interrupt,
 try :
-    while True :
-        sleep(60)
+    while mws2.IsRunning :
+        sleep(1)
 except KeyboardInterrupt :
-    print()
-    mws2.Stop()
-    print('Bye')
-    print()
+    pass
+
+# End,
+print()
+mws2.Stop()
+print('Bye')
+print()
 
 # ============================================================================
 # ============================================================================
