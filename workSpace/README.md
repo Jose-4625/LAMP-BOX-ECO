@@ -48,7 +48,7 @@
     
     from RoutineInterfaceDataModel import Routine
 
-    jsondata = '{ClientRoutineJSONData}'
+    jsonData = '{ClientRoutineJSONData}'
 
     Rout = Routine.addSubRoutine(jsonData) #creates Routine Obj and adds routine to static array
     #Routine automatically parses JSON into python Dict
