@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41eedd10-49ec-4ec0-b1f9-ed7faeb56dee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workSpace.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/DataController(test)-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataController(test).ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSON_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAMP.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAMP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dummyESP32.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gzipper.py" beforeDir="false" afterPath="$PROJECT_DIR$/gzipper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdcard.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/urequests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/Temp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/Temp.html.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/css/bootstrap.min.css.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/js/bootstrap.min.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/js/jquery-3.4.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/js/jquery-3.4.1.min.js.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/js/plotly-latest.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/js/plotly-latest.min.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MicroWebSrv2/microWebSrv2.py" beforeDir="false" afterPath="$PROJECT_DIR$/MicroWebSrv2/microWebSrv2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/indexLITE.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            <state relative-caret-position="144">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -74,6 +47,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -85,7 +59,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,16 +152,17 @@
       <updated>1573760256249</updated>
       <workItem from="1573760258741" duration="1865000" />
       <workItem from="1573762294957" duration="2438000" />
+      <workItem from="1574019781893" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4303000" />
+    <option name="totallyTimeSpent" value="4901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1487" height="878" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18824352" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19104269" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -245,8 +219,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/indexLITE.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state relative-caret-position="144">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,7 @@
 from MicroWebSrv2 import *
 from time import sleep
+import json
+from RoutineInterfaceDataModel import Routine
 
 #create webroute
 @WebRoute(GET, '/')
@@ -10,6 +12,13 @@ def RequestTest(microWebSrv2, request):
     content = open("./www/index.html", 'r').read()
     request.Response.ReturnOk(content)
     print(request.Response._headers)
+@WebRoute(POST, '/')
+def RequestTest(microWebSrv2, request):
+    req = json.dumps(request.GetPostedJSONObject())
+    interface = Routine.addSubRoutine(req)
+    interface.show()
+    request.Response.ReturnOk()
+
 #Start Server
 mws = MicroWebSrv2()
 mws.SetEmbeddedConfig()

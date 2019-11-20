@@ -27,6 +27,13 @@ class MicroWebSrv2 :
         "default.html",
         "default.htm"
     ]
+    _ENCODINGS = (
+        (".gz", "gzip"),
+        (".br", "br"),
+        (""    , "identity"),
+        (""    , ""),
+
+    )
 
     _MIME_TYPES = {
         ".txt"   : "text/plain",
@@ -162,11 +169,24 @@ class MicroWebSrv2 :
     # ------------------------------------------------------------------------
 
     @staticmethod
-    def GetMimeTypeFromFilename(filename) :
+    def GetMimeTypeFromFilename(filename, encoding="") :
         filename = filename.lower()
+        for enc_ext, enc in MicroWebSrv2._ENCODINGS:
+            if encoding == enc:
+                break
         for ext in MicroWebSrv2._MIME_TYPES :
-            if filename.endswith(ext) :
+            if filename.endswith(ext + enc_ext) :
                 return MicroWebSrv2._MIME_TYPES[ext]
+        return None
+
+    # ------------------------------------------------------------------------
+
+    @staticmethod
+    def GetEncodingFromFilename(filename):
+        filename = filename.lower()
+        for ext, enc in MicroWebSrv2._ENCODINGS:
+            if ext and filename.endswith(ext):
+                return enc
         return None
 
     # ------------------------------------------------------------------------
@@ -252,6 +272,12 @@ class MicroWebSrv2 :
 
     # ------------------------------------------------------------------------
 
+    def PathWithEncodings(path, encodings=[]):
+        for ext, enc in MicroWebSrv2._ENCODINGS:
+            pass #//TODO:
+
+    # ------------------------------------------------------------------------
+
     def ResolvePhysicalPath(self, urlPath) :
         if not isinstance(urlPath, str) or len(urlPath) == 0 :
             raise ValueError('"urlPath" must be a not empty string.')
@@ -296,7 +322,7 @@ class MicroWebSrv2 :
     def _validateChangeConf(self, name='Configuration') :
         if self._xasSrv :
             raise MicroWebSrv2Exception('%s cannot be changed while the server is running.' % name)
-    
+
     # ------------------------------------------------------------------------
 
     def EnableSSL(self, certFile, keyFile, caFile=None) :
@@ -331,7 +357,7 @@ class MicroWebSrv2 :
         if self._bindAddr[1] == 443 :
             self._bindAddr = (self._bindAddr[0], 80)
 
-    # ------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------
 
     def SetEmbeddedConfig(self) :
         self._validateChangeConf()
