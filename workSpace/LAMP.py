@@ -2,23 +2,35 @@ from MicroWebSrv2 import *
 from time import sleep
 import json
 from RoutineInterfaceDataModel import Routine
+from RTController import RTController, TempController
 
-#create webroute
+
+#create Interface webroute
 @WebRoute(GET, '/')
-def RequestTest(microWebSrv2, request):
+def GETInterface(microWebSrv2, request):
     request.Response.SetHeader('Content-Encoding','gzip')
     request.Response.SetHeader('Content-Type','text/css')
 
     content = open("./www/index.html", 'r').read()
     request.Response.ReturnOk(content)
     print(request.Response._headers)
+
 @WebRoute(POST, '/')
-def RequestTest(microWebSrv2, request):
+def POSTInterface(microWebSrv2, request):
     req = json.dumps(request.GetPostedJSONObject())
     interface = Routine.addSubRoutine(req)
-    interface.show()
+    RTController.RT()
     request.Response.ReturnOk()
 
+@WebRoute(GET, "/espData")
+def GET_ESP_Data(microWebSrv2, request):
+    try:
+        pass
+    except:
+        pass
+    content = ""
+
+    request.Response.ReturnStream(content)
 #Start Server
 mws = MicroWebSrv2()
 mws.SetEmbeddedConfig()

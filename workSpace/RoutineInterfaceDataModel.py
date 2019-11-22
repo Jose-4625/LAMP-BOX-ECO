@@ -19,6 +19,7 @@ def jsonPyObjCov(jsonSTR):
     pyObj = json.loads(jsonSTR)
     #print(pyObj)
     return pyObj["subRoutine"]['idx'], pyObj["subRoutine"]['maxTemp'],pyObj["subRoutine"]['dur'],pyObj["subRoutine"]['cycle']
+
 """"Data model"""
 class Routine(object):
 
@@ -33,7 +34,8 @@ class Routine(object):
        self.idx = idx
        self.temp_dur = list(zip(temp,dur))
        self.cycle = cycle
-   def show(self):
+   @classmethod
+   def show(cls):
        print(Routine._subRoutines)
    def __repr__(self):
        return str(self.__dict__)
