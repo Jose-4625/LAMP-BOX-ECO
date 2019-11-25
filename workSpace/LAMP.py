@@ -3,6 +3,10 @@ from time import sleep
 import json
 from RoutineInterfaceDataModel import Routine
 from RTController import RTController, TempController
+try:
+    import esp
+except ImportError:
+    pass
 
 
 #create Interface webroute

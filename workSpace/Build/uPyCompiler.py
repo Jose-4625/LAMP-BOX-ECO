@@ -20,7 +20,7 @@ else:
     os.mkdir('../compiled/MicroWebSrv2/mods')
 
 for i in os.listdir(workPath):
-    if i.endswith('.py') and i != 'gzipper.py' and i != 'main.py':
+    if i.endswith('.py') and i not in ['gzipper.py', 'main.py', 'test_pid.py']:
         print("Compiling: " + i)
         mpy_cross.run(workPath + '/' + i)
 
