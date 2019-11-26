@@ -11,7 +11,7 @@ sim = {
         "cycle": False
     }
 }
-simJSON = '{"subRoutine":{"idx":"1","minTemp":[453,554],"maxTemp":[453,554],"dur":[4545,54],"cycle":["cycleOn","cycleOn"]}}'#json.dumps(sim)
+simJSON = '{"subRoutine":{"idx":"1","minTemp":[453,554],"maxTemp":[453,554],"dur":[4545,54],"cycle":[40,30]}}'#json.dumps(sim)
 #print(simJSON)
 "====================================Simulated JSON dump============================================="
 """JSON to Python interface """
@@ -26,6 +26,7 @@ class Routine(object):
    @classmethod
    def addSubRoutine(cls, jsonStr):
        _ = cls(jsonStr)
+       del _._subRoutines[:]
        _._subRoutines.append(_)
        return _
    _subRoutines = []
@@ -43,6 +44,5 @@ class Routine(object):
 
 
 
-if __name__ == "__main__":
+def test():
     vir = Routine.addSubRoutine(simJSON)
-    vir.show()

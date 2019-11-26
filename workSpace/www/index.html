@@ -70,8 +70,20 @@
   <div class="container fill" id ="master">
     <h1>LAMP BOX DASHBOARD</h1>
     <br>
+    <h1 class="results" ></h1>
 
     <script type="text/javascript">
+      $(document).ready(function(){ //wait until page is ready
+       setInterval(function() { // this will execute the function every 1s
+            // Variables
+            let url = "/live"; // locaiton of your form page
+
+            // Get
+            $.get(url, function(d) { // jquery function that 'does' the GET request
+               $('.results').text(d.MeasuredTemp) // when we have a returned request, populate the element above with the body of the returned request ( plain text )
+            });
+       }, 1000); // here we have set 1s (1000 ms)
+      })
     var rowNum = 0;
     var maxRow = 0;
     function addRow(TableID, tempMax, runtime, cycle){
@@ -81,8 +93,7 @@
       let tabRef = document.getElementById(TableID);
       tempMax = document.getElementById(tempMax).value;
       runtime = document.getElementById(runtime).value;
-      cycle = document.getElementById(cycle);
-      let cycleData = cycle.options[cycle.selectedIndex].value;
+      cycle = document.getElementById(cycle).value;
       let newRow = tabRef.insertRow(-1);
       newRow.setAttribute('id', rowNum);
       var newCell = newRow.insertCell(0);
@@ -92,18 +103,15 @@
       var newText = document.createTextNode(tempMax);
       newCell.appendChild(newText);
       var newCell = newRow.insertCell(2);
-      var newText = document.createTextNode(tempMax);
-      newCell.appendChild(newText);
-      var newCell = newRow.insertCell(3);
       var newText = document.createTextNode(runtime);
       newCell.appendChild(newText);
-      var newCell = newRow.insertCell(4);
-      var newText = document.createTextNode(cycleData);
+      var newCell = newRow.insertCell(3);
+      var newText = document.createTextNode(cycle);
       newCell.appendChild(newText);
       //var newCell = newRow.insertCell(4);
       var newText = document.createElement('td');
       //console.log(newRow)
-      newText.innerHTML = '<button id="'+ rowNum +'" type="button" class="btn btn-danger" onclick="deleteRow(this)"> - </button>'
+      newText.innerHTML = '<button id="'+ rowNum +'" type="button" class="btn btn-danger" onclick="deleteRow(this)"> - </button>';
       newRow.appendChild(newText);
       rowNum += 1
     }
@@ -125,14 +133,13 @@
 
     }
     function startProcess(){
-      var TempMinArr = [], TempMaxArr = [], runtimeArr = [], cycleArr = [];
+      var TempMaxArr = [], runtimeArr = [], cycleArr = [];
       const tbl2 = $('#table tr').each(function(i) {
          x = $(this).children();
          if (x[0].tagName != "TH"){
-           TempMinArr.push(parseInt(x[1].innerHTML));
-           TempMaxArr.push(parseInt(x[2].innerHTML));
-           runtimeArr.push(parseInt(x[3].innerHTML));
-           cycleArr.push(x[4].innerHTML);
+           TempMaxArr.push(parseInt(x[1].innerHTML));
+           runtimeArr.push(parseInt(x[2].innerHTML));
+           cycleArr.push(parseInt(x[3].innerHTML));
 
          }
 
@@ -141,7 +148,6 @@
        const json = {
         "subRoutine":{
           "idx": 1,
-          "minTemp": TempMinArr,
           "maxTemp": TempMaxArr ,
           "dur":  runtimeArr ,
           "cycle":  cycleArr
@@ -161,14 +167,13 @@
       return String(json);
     }
     function stopProcess(){
-      var TempMinArr = [], TempMaxArr = [], runtimeArr = [], cycleArr = [];
+      var TempMaxArr = [], runtimeArr = [], cycleArr = [];
       const tbl2 = $('#table tr').each(function(i) {
          x = $(this).children();
          if (x[0].tagName != "TH"){
-           TempMinArr.push(parseInt(x[1].innerHTML));
-           TempMaxArr.push(parseInt(x[2].innerHTML));
-           runtimeArr.push(parseInt(x[3].innerHTML));
-           cycleArr.push(x[4].innerHTML);
+           TempMaxArr.push(parseInt(x[1].innerHTML));
+           runtimeArr.push(parseInt(x[2].innerHTML));
+           cycleArr.push(parseInt(x[3].innerHTML));
 
          }
 
@@ -177,7 +182,6 @@
        const json = {
         "subRoutine":{
           "idx": 0,
-          "minTemp": TempMinArr,
           "maxTemp": TempMaxArr ,
           "dur":  runtimeArr ,
           "cycle":  cycleArr
@@ -217,17 +221,13 @@
             <div class="modal-body">
               <p>Temperature: <input type="number" id="Temperature" value=""></p>
               <p>Runtime: <input type="number" id="Runtime" value=""></p>
-              <p>Cycle?:
-              <select id='Cycle'>
-                <option value="cycleOn">Yes</option>
-                <option value="cycleOff">No</option>
-              </select></p>
+              <p>Cycles: <input type="number" id="Cycles" value=""></p>
 
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
-              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addRow('table','Temperature','Runtime','Cycle')">Save</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addRow('table','Temperature','Runtime','Cycles')">Save</button>
             </div>
           </div>
 
@@ -250,10 +250,9 @@
 
           <tr>
             <th>Routine #</th>
-            <th>Temp min</th>
-            <th>Temp Max</th>
+            <th>Temp</th>
             <th>Runtime</th>
-            <th>Cycle</th>
+            <th>Cycles</th>
             <th>Control</th>
           </tr>
         </thead>

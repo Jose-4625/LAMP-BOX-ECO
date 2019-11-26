@@ -42,7 +42,10 @@ for i in os.listdir(MWS):
 for i in os.listdir(MWS):
     print("cleaning workSpace...")
     if i.endswith('.mpy'):
-        shutil.move(MWS + '/' + i, '../compiled/MicroWebSrv2/' + i)
+        try:
+            shutil.move(MWS + '/' + i, '../compiled/MicroWebSrv2/' + i)
+        except PermissionError:
+            print("A problem occured while moving: "+ i +" Not Fatal")
     else:
         pass
 
