@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41eedd10-49ec-4ec0-b1f9-ed7faeb56dee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MicroWebSrv2/libs/XAsyncSockets.mpy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RTController.mpy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Build/uPyCompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Build/uPyCompiler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAMP.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAMP.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RTController.py" beforeDir="false" afterPath="$PROJECT_DIR$/RTController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RoutineInterfaceDataModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/RoutineInterfaceDataModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled/LAMP.mpy" beforeDir="false" afterPath="$PROJECT_DIR$/compiled/LAMP.mpy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled/RTController.mpy" beforeDir="false" afterPath="$PROJECT_DIR$/compiled/RTController.mpy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled/RoutineInterfaceDataModel.mpy" beforeDir="false" afterPath="$PROJECT_DIR$/compiled/RoutineInterfaceDataModel.mpy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,12 +13,12 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Build/uPyCompiler.py">
+        <entry file="file://$PROJECT_DIR$/RTController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
+            <state relative-caret-position="168">
+              <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
               <folding>
-                <element signature="e#0#16#0" expanded="true" />
+                <element signature="e#0#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,15 +57,15 @@
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/RoutineInterfaceDataModel.py" />
         <option value="$PROJECT_DIR$/LAMP.py" />
-        <option value="$PROJECT_DIR$/RTController.py" />
         <option value="$PROJECT_DIR$/Build/uPyCompiler.py" />
+        <option value="$PROJECT_DIR$/RTController.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="959" />
-    <option name="height" value="1089" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="937" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -281,7 +271,7 @@
       <workItem from="1574019781893" duration="598000" />
       <workItem from="1574437130860" duration="13555000" />
       <workItem from="1574649958982" duration="23597000" />
-      <workItem from="1574731959215" duration="2929000" />
+      <workItem from="1574731959215" duration="4340000" />
     </task>
     <task id="LOCAL-00001" summary="implemented and tested micropython PID Controller">
       <created>1574655099685</created>
@@ -290,16 +280,23 @@
       <option name="project" value="LOCAL" />
       <updated>1574655099685</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="implemented and tested micropython _threading for Real-Time Event Controller">
+      <created>1574735005812</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574735005812</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44982000" />
+    <option name="totallyTimeSpent" value="46393000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="767" height="871" extended-state="0" />
+    <frame x="-6" y="0" width="749" height="870" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.45698166" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.42691752" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -307,14 +304,14 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" visible="true" weight="0.35444948" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.35074627" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299712" />
       <window_info anchor="bottom" id="Floobits" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32930514" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.34441087" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32853025" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -328,7 +325,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implemented and tested micropython PID Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented and tested micropython PID Controller" />
+    <MESSAGE value="implemented and tested micropython _threading for Real-Time Event Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented and tested micropython _threading for Real-Time Event Controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -435,22 +433,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RTController.py">
+    <entry file="file://$PROJECT_DIR$/Build/uPyCompiler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3192">
-          <caret line="122" column="25" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="25" />
+        <state relative-caret-position="984">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Build/uPyCompiler.py">
+    <entry file="file://$PROJECT_DIR$/RTController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
+        <state relative-caret-position="168">
+          <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>

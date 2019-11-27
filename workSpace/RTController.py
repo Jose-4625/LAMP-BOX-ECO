@@ -83,8 +83,6 @@ class RTController(object):
         else:
             PID.SYSrst()
             TempController.rst()
-            print(_thread.get_ident())
-            print(RTController._thread)
             print("Exit Thread called")
             RTController._exit = True
             del Routine._subRoutines[:]
