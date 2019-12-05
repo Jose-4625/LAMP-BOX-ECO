@@ -82,5 +82,4 @@
 <b>main.py</b> => MicroWebSrv2 Test file<br>
 <b>gzipper.py</b> => file compressor<br>
 <b>Build/uPyCompiler.py</b> => Python --> MicroPython bytecode compiler (RAM Optimization)<br>
-
 </div>
