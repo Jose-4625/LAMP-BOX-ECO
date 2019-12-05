@@ -1,8 +1,9 @@
 from RoutineInterfaceDataModel import Routine
 import RoutineInterfaceDataModel
 import time
-import _thread
+import gc
 try:
+    import _thread
     from machine import Pin
     import max6677
 except ImportError:
