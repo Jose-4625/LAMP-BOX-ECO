@@ -8,6 +8,7 @@ try:
     import max6677
 except ImportError:
     pass
+"""Proportional-Integral-Derivative Temperature controller minimal implementation in MicroPython"""
 class PID:
     _instances = []
     def __init__(self, p=0.2, i=0, d=0, c_time=None):
@@ -53,7 +54,7 @@ class PID:
             self.w_pro = w_pro
 
 
-
+"""Abstraction layer for interacting with ESP32 hardware pins"""
 class TempController:
     def __init__(self, M_Pin= 15, H_Pin=16, F_Pin=17, T_temp=0.0):
         self.tempMsr_pin = M_Pin
@@ -78,6 +79,7 @@ class RTController(object):
     _thread = None
     _exit = False
     _time = None
+
     @staticmethod
     def runtimeControl(state=False):
         if state:
@@ -90,13 +92,16 @@ class RTController(object):
             del Routine._subRoutines[:]
 
         #temperature controls
+
     @classmethod
     def RT(cls,thread):
         cls._thread = thread
         Routine.show()
+
     @classmethod
     def getSubRoutine(cls):
        return Routine._subRoutines[-1]
+
     @classmethod
     def RTCheck(cls, current):
         print("current", current)
@@ -106,6 +111,7 @@ class RTController(object):
         else:
             cls.runtimeControl(state=False)
             return False
+
     @classmethod
     def RTStart(cls):
         try:
