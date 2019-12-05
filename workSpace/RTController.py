@@ -76,6 +76,7 @@ class RTController(object):
     _currentSP = None
     _thread = None
     _exit = False
+    _time = None
     @staticmethod
     def runtimeControl(state=False):
         if state:
@@ -114,18 +115,18 @@ class RTController(object):
         cls._exit = False
         T_D = srt['temp_dur']
         cy = srt['cycle']
-        for i in cy:
+        for i in range(len(cy)):
             #print(i)
-            for j in range(i):
+            for j in range(cy[i]):
                 cls._currentCyc = j
                 #print(j)
                 c_time = time.time()
                 p_time = c_time
                 d_time = c_time - p_time
 
-                while d_time <= T_D[0][1] * 60:
+                while d_time <= T_D[i][1] * 60:
                     print("Time Delta: ",d_time)
-                    cls._currentSP = T_D[0][0]
+                    cls._currentSP = T_D[i][0]
                     cls._currentTemp = TempController.measure()
                     print(cls._currentSP, cls._currentTemp)
                     if not cls._exit:
@@ -134,9 +135,28 @@ class RTController(object):
                         return
                     time.sleep(1)
                     d_time = time.time() - p_time
+                    if d_time % 60 == 0:
+                        cls._time -= 1 # time is in minutes
+
 
         print(T_D)
         return
+    @classmethod
+    def calcTime(cls):
+        _total = 0
+        if cls._time == None:
+            try:
+                srt = cls.getSubRoutine().__dict__
+            except IndexError:
+                print("Thread Stopped")
+                return
+            cls._exit = False
+            T_D = srt['temp_dur']
+            cy = srt['cycle']
+            for i in range(len(cy)):
+                _total += cy[i] * T_D[i][1]
+            cls._time = _total
+        return cls._time
 
 if __name__ == '__main__':
     RoutineInterfaceDataModel.test()
@@ -144,4 +164,3 @@ if __name__ == '__main__':
     RoutineInterfaceDataModel.test()
     RoutineInterfaceDataModel.test()
     RTController.RTStart()
-
