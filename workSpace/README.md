@@ -60,24 +60,17 @@
 <b>RTController.py contains</b>:{
   <div>
   <b>Libraries (imported)</b>:<br>
-  json<br>
-  json<br>
-  json<br>
-  json<br>
+  RoutineInterfaceDataModel<br>
+  time<br>
+  gc<br>
+  _thread<br>
+  machine<br>
+  max6677<br>
 
   <b>Functionality</b>:<br>
-  Handles the interpretation of json strings returning from the client.<br>
-  Creates Routine Object from normal instatiation.(Discouraged)<br>
-  Creation of single Routine object has <em>addSubRoutine</em> class method to allow multi-routine object creation and management(encouraged)<br>
-  ex.
-
-    from RoutineInterfaceDataModel import Routine
-
-    jsonData = '{ClientRoutineJSONData}'
-
-    Rout = Routine.addSubRoutine(jsonData) #creates Routine Obj and adds routine to static array
-    #Routine automatically parses JSON into python Dict
-    Rout.show() # print static array with all routine object that have been created
+  Defines a minimal PID temperature controller<br>
+  Defines an abstraction layer for interacting with ESP32 hardware<br>
+  implementation of a Real-Time Controller Object to be an interface between the async webserver and async hardware functionality. All data between client and server hardware is called and pushed through the RTController object.
 
   </div>
 }
