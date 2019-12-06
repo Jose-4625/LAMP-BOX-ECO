@@ -42,7 +42,7 @@
 
   <b>Functionality</b>:<br>
   Handles the interpretation of json strings returning from the client.<br>
-  Creates Routine Object from normal instatiation.(Discouraged)<br>
+  Creates Routine Object from normal instantiation.(Discouraged)<br>
   Creation of single Routine object has <em>addSubRoutine</em> class method to allow multi-routine object creation and management(encouraged)<br>
   ex.
 
@@ -70,7 +70,7 @@
   <b>Functionality</b>:<br>
   Defines a minimal PID temperature controller<br>
   Defines an abstraction layer for interacting with ESP32 hardware<br>
-  implementation of a Real-Time Controller Object to be an interface between the async webserver and async hardware functionality. All data between client and server hardware is called and pushed through the RTController object.
+  implementation of a Real-Time Controller Object to be an interface between the async webserver and async hardware functionality. All data between client and server hardware is called and passed through the RTController object.
 
   </div>
 }
@@ -81,8 +81,6 @@
 <div>
 <b>main.py</b> => MicroWebSrv2 Test file<br>
 <b>gzipper.py</b> => file compressor<br>
-<<<<<<< HEAD
 <b>Build/uPyCompiler.py</b> => Python --> MicroPython bytecode compiler (RAM Optimization)<br>
-=======
->>>>>>> 181788479ad403e77979f10bb0bb697470ce0c5a
+
 </div>

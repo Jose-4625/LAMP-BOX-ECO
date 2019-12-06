@@ -4,19 +4,11 @@ import json
 from RoutineInterfaceDataModel import Routine
 from RTController import RTController, TempController
 import _thread
+import gc
 try:
     import esp
 except ImportError:
     pass
-class stream:
-    def __init__(self,x):
-        self.data = x.encode()
-    def readinto(self,x):
-        msg = self.data
-        x[:len(msg)] = msg
-        return len(msg)
-    def close(self):
-        return True
 
 #create Interface webroute
 @WebRoute(GET, '/')
@@ -33,6 +25,7 @@ def POSTInterface(microWebSrv2, request):
     req = json.dumps(request.GetPostedJSONObject())
     interface = Routine.addSubRoutine(req)
     RTController.RTCheck(RTController.getSubRoutine())
+    RTController.calcTime()
     RTController.RT(_thread.start_new_thread(RTController.RTStart, ()))
     request.Response.ReturnOk()
 
@@ -52,6 +45,7 @@ def GET_ESP_Data(microWebSrv2, request):
     request.Response.ReturnOkJSON({
         'MeasuredTemp': data
     })
+    gc.collect()
 def restart():
     mws = MicroWebSrv2()
     mws.SetEmbeddedConfig()

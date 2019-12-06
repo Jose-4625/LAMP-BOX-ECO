@@ -56,6 +56,12 @@ class PID:
 
 """Abstraction layer for interacting with ESP32 hardware pins"""
 class TempController:
+    _dataBuf = {
+        "Temp": [],
+        "Fan": True,
+        "Htr": False,
+        "setPt": 0
+    }
     def __init__(self, M_Pin= 15, H_Pin=16, F_Pin=17, T_temp=0.0):
         self.tempMsr_pin = M_Pin
         self.htrPWM_pin = H_Pin
@@ -85,10 +91,16 @@ class RTController(object):
         if state:
             pass
         else:
+            print("System Reset")
             PID.SYSrst()
             TempController.rst()
             print("Exit Thread called")
             RTController._exit = True
+            RTController._currentCyc = None
+            RTController._currentTemp = None
+            RTController._currentSP = None
+            RTController._thread = None
+            RTController._time = None
             del Routine._subRoutines[:]
 
         #temperature controls
@@ -142,11 +154,13 @@ class RTController(object):
                         return
                     time.sleep(1)
                     d_time = time.time() - p_time
-                    if d_time % 60 == 0:
+                    if d_time % 60 == 0 or d_time > 59.3:
                         cls._time -= 1 # time is in minutes
+                        print("Time Left: " + str(cls._time))
 
 
         print(T_D)
+        cls.runtimeControl(state=False)
         return
     @classmethod
     def calcTime(cls):
@@ -163,11 +177,10 @@ class RTController(object):
             for i in range(len(cy)):
                 _total += cy[i] * T_D[i][1]
             cls._time = _total
+        print("Total Time: " + str(cls._time))
         return cls._time
 
 if __name__ == '__main__':
-    RoutineInterfaceDataModel.test()
-    RoutineInterfaceDataModel.test()
-    RoutineInterfaceDataModel.test()
-    RoutineInterfaceDataModel.test()
+    RoutineInterfaceDataModel.test(T=[40, 50], D=[1, 1], C=[1, 1])
+    RTController.calcTime()
     RTController.RTStart()

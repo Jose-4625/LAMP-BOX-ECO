@@ -11,7 +11,7 @@ sim = {
         "cycle": False
     }
 }
-simJSON = '{"subRoutine":{"idx":"1","minTemp":[453,554],"maxTemp":[453,554],"dur":[4545,54],"cycle":[40,30]}}'#json.dumps(sim)
+simJSON = '{"subRoutine":{"idx":"1","minTemp":[453,554],"maxTemp":[453,554],"dur":[30,54],"cycle":[10,5]}}'#json.dumps(sim)
 #print(simJSON)
 "====================================Simulated JSON dump============================================="
 """JSON to Python interface """
@@ -44,5 +44,10 @@ class Routine(object):
 
 
 
-def test():
-    vir = Routine.addSubRoutine(simJSON)
+def test(T=None,D=None,C=None):
+    if None in [T,D,C]:
+        global simJSON
+        Routine.addSubRoutine(simJSON)
+    else:
+        _simJSON = '{"subRoutine":{"idx":"1","maxTemp":' + str(T) + ',"dur":' + str(D) + ',"cycle":' + str(C) + '}}'
+        Routine.addSubRoutine(_simJSON)
