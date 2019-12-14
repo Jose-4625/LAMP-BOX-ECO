@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41eedd10-49ec-4ec0-b1f9-ed7faeb56dee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAMP.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAMP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MicroWebSrv2/webRoute.mpy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RTController.mpy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RTController.py" beforeDir="false" afterPath="$PROJECT_DIR$/RTController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RoutineInterfaceDataModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/RoutineInterfaceDataModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled/RTController.mpy" beforeDir="false" afterPath="$PROJECT_DIR$/compiled/RTController.mpy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MicroWebSrv2/__init__.mpy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MicroWebSrv2/mods/PyhtmlTemplate.mpy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MicroWebSrv2/mods/WebSockets.mpy" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +18,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="358">
-                <caret line="72" column="196" selection-start-line="72" selection-start-column="196" selection-end-line="72" selection-end-column="196" />
+              <first_editor relative-caret-position="216">
+                <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
               </first_editor>
               <second_editor />
             </state>
@@ -70,7 +65,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1018" />
     <option name="height" value="1088" />
@@ -277,7 +272,7 @@
       <workItem from="1574731959215" duration="4340000" />
       <workItem from="1574912835761" duration="141000" />
       <workItem from="1575575005536" duration="4122000" />
-      <workItem from="1575644446309" duration="3869000" />
+      <workItem from="1575644446309" duration="4246000" />
     </task>
     <task id="LOCAL-00001" summary="implemented and tested micropython PID Controller">
       <created>1574655099685</created>
@@ -293,14 +288,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574735005812</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Evaluated RT Clock functionality and interaction with other async methods">
+      <created>1575648626164</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575648626164</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54525000" />
+    <option name="totallyTimeSpent" value="54902000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="814" height="870" extended-state="0" />
+    <frame x="-7" y="-7" width="1487" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.23941799" />
@@ -311,7 +313,7 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" x="802" y="462" width="670" height="401" id="Run" order="5" type="WINDOWED" visible="true" weight="0.3489426" />
+      <window_info anchor="bottom" x="802" y="462" width="670" height="401" id="Run" order="5" type="WINDOWED" weight="0.3489426" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298193" />
@@ -333,7 +335,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implemented and tested micropython PID Controller" />
     <MESSAGE value="implemented and tested micropython _threading for Real-Time Event Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented and tested micropython _threading for Real-Time Event Controller" />
+    <MESSAGE value="Evaluated RT Clock functionality and interaction with other async methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Evaluated RT Clock functionality and interaction with other async methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -461,8 +464,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="358">
-            <caret line="72" column="196" selection-start-line="72" selection-start-column="196" selection-end-line="72" selection-end-column="196" />
+          <first_editor relative-caret-position="216">
+            <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           </first_editor>
           <second_editor />
         </state>
