@@ -1,11 +1,13 @@
 from RoutineInterfaceDataModel import Routine
 import RoutineInterfaceDataModel
 import time
+from singletonType import uSingleton
 import gc
 try:
     import _thread
     from machine import Pin
     import max6677
+
 except ImportError:
     pass
 """Proportional-Integral-Derivative Temperature controller minimal implementation in MicroPython"""
@@ -69,16 +71,19 @@ class TempController:
         self.targetT = T_temp
     @classmethod
     def measure(cls):
+        #{INDEV}
         return time.time()
     def respond(self):
+        #{INDEV}
         pass
     @classmethod
     def rst(cls):
+        #{INDEV}
         pass
 
 """Real-Time Controller object is the main interface between webservers and hardware"""
 
-class RTController(object):
+class RTController(uSingleton):
     _currentCyc = None
     _currentTemp = None
     _currentSP = None
@@ -127,13 +132,13 @@ class RTController(object):
     @classmethod
     def RTStart(cls):
         try:
-            srt = cls.getSubRoutine().__dict__
+            srt = cls.getSubRoutine()
         except IndexError:
             print("Thread Stopped")
             return
         cls._exit = False
-        T_D = srt['temp_dur']
-        cy = srt['cycle']
+        T_D = srt.temp_dur
+        cy = srt.cycle
         for i in range(len(cy)):
             #print(i)
             for j in range(cy[i]):
@@ -167,13 +172,13 @@ class RTController(object):
         _total = 0
         if cls._time == None:
             try:
-                srt = cls.getSubRoutine().__dict__
+                srt = cls.getSubRoutine()
             except IndexError:
                 print("Thread Stopped")
                 return
             cls._exit = False
-            T_D = srt['temp_dur']
-            cy = srt['cycle']
+            T_D = srt.temp_dur
+            cy = srt.cycle
             for i in range(len(cy)):
                 _total += cy[i] * T_D[i][1]
             cls._time = _total
