@@ -38,6 +38,9 @@
       background-color: #99D4FF;
       border-radius: 25px;
     }
+    .temp, .setpoint, .cycle, .time{
+      color: #c82333;
+    }
     h1{
       text-align: center;
       color: #ffffff;
@@ -70,7 +73,10 @@
   <div class="container fill" id ="master">
     <h1>LAMP BOX DASHBOARD</h1>
     <br>
-    <h1 class="results" ></h1>
+    <h1>Current Temp: <h1 class="temp" ></h1> </h1>
+    <h1>Current Setpoint: <h1 class="setpoint"></h1></h1>
+    <h1>Current Cycle: <h1 class="cycle"></h1></h1>
+    <h1>Time Remaining: <h1 class="time"></h1></h1>
 
     <script type="text/javascript">
       $(document).ready(function(){ //wait until page is ready
@@ -80,10 +86,13 @@
 
             // Get
             $.get(url, function(d) { // jquery function that 'does' the GET request
-               $('.results').text(d.MeasuredTemp) // when we have a returned request, populate the element above with the body of the returned request ( plain text )
+               $('.temp').text(d.MeasuredTemp);
+               $('.setpoint').text(d.currentSetP);
+               $('.cycle').text(d.currentCycle);
+               $('.time').text(d.currentTotalTime);// when we have a returned request, populate the element above with the body of the returned request ( plain text )
             });
        }, 1000); // here we have set 1s (1000 ms)
-      })
+      });
     var rowNum = 0;
     var maxRow = 0;
     function addRow(TableID, tempMax, runtime, cycle){

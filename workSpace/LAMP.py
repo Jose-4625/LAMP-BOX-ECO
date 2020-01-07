@@ -34,16 +34,37 @@ def GET_ESP_Data(microWebSrv2, request):
     try:
         c_t = TempController()
         c_t = c_t.measure()
-        if all(isinstance(i, float) for i in [c_t]):  # Confirm values
-            data = '{0:.1f}&deg;C'.format(c_t)
+        rt = RTController()
+        c_c = rt.currentCycle()
+        c_s = rt.currentSetpoint()
+        c_tt = rt.currentTotalTime()
+
+        if isinstance(c_t, float):  # Confirm values
+            temp = '{0:.1f}'.format(c_t)
         else:
-            data = 'Invalid reading.'
+            temp = 'Invalid reading.'
+        if isinstance(c_c, (int, float)):  # Confirm values
+            cycle = '{0:.1f}'.format(c_c)
+        else:
+            cycle = 'Invalid reading.'
+        if isinstance(c_s, (int, float)):  # Confirm values
+            setP = '{0:.1f}'.format(c_s)
+        else:
+            setP = 'Invalid reading.'
+        if isinstance(c_tt, (int, float)):  # Confirm values
+            tt = '{0:.1f}'.format(c_tt)
+        else:
+            tt = 'Invalid reading.'
 
     except:
-        data = 'Attempting to read sensor...'
+        temp = 'Attempting to read sensor...'
+
     request.Response.SetHeader('Content-Type', 'text/event-stream')
     request.Response.ReturnOkJSON({
-        'MeasuredTemp': data
+        'MeasuredTemp': temp,
+        'currentSetP': setP,
+        'currentCycle': cycle,
+        'currentTotalTime': tt
     })
     gc.collect()
 def restart():

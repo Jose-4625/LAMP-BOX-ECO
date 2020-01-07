@@ -11,18 +11,14 @@ try:
 except ImportError:
     pass
 """Proportional-Integral-Derivative Temperature controller minimal implementation in MicroPython"""
-class PID:
-    _instances = []
+class PID(uSingleton):
     def __init__(self, p=0.2, i=0, d=0, c_time=None):
         self.p, self.i, self.d, self.s_rate = [p, i, d, 0.0]
         self.c_time = c_time if c_time != None else time.time()
         self.p_time = self.c_time
         self.rst()
-        self._instances.append(self)
-    @classmethod
-    def SYSrst(cls):
-        for i in cls._instances:
-            i.rst()
+    def SYSrst(self):
+        self.rst()
     def rst(self):
         self.setPoint, self._I, self._D, self._P, self.p_err, self.i_err, self.output, self.w_pro = [0,0,0,0,0,0,0,20]
 
@@ -57,22 +53,25 @@ class PID:
 
 
 """Abstraction layer for interacting with ESP32 hardware pins"""
-class TempController:
-    _dataBuf = {
-        "Temp": [],
+class TempController(uSingleton):
+    _Buf = {
+        "Temp": None,
         "Fan": True,
         "Htr": False,
-        "setPt": 0
+        "setPt": 0.0
     }
+
     def __init__(self, M_Pin= 15, H_Pin=16, F_Pin=17, T_temp=0.0):
         self.tempMsr_pin = M_Pin
         self.htrPWM_pin = H_Pin
         self.fan_pin = F_Pin
-        self.targetT = T_temp
+        self._Buf["setPt"] = T_temp
+
     @classmethod
     def measure(cls):
         #{INDEV}
-        return time.time()
+        cls.temperature = time.time()
+        return cls.temperature
     def respond(self):
         #{INDEV}
         pass
@@ -80,6 +79,18 @@ class TempController:
     def rst(cls):
         #{INDEV}
         pass
+    @property
+    def temperature(self):
+        return self._Buf["Temp"]
+    @temperature.setter
+    def temperature(self, v):
+        self._Buf['Temp'] = v
+    @property
+    def fanState(self):
+        return self._Buf["Fan"]
+    @fanState.setter
+    def fanState(self, v):
+        self._Buf['setPt'] = v
 
 """Real-Time Controller object is the main interface between webservers and hardware"""
 
@@ -97,7 +108,7 @@ class RTController(uSingleton):
             pass
         else:
             print("System Reset")
-            PID.SYSrst()
+            PID().SYSrst()
             TempController.rst()
             print("Exit Thread called")
             RTController._exit = True
@@ -122,7 +133,7 @@ class RTController(uSingleton):
     @classmethod
     def RTCheck(cls, current):
         print("current", current)
-        if current.__dict__['idx'] != 0:
+        if current.idx != 0:
             cls.runtimeControl(state=True)
             return True
         else:
@@ -142,7 +153,7 @@ class RTController(uSingleton):
         for i in range(len(cy)):
             #print(i)
             for j in range(cy[i]):
-                cls._currentCyc = j
+                cls._currentCyc = j + 1
                 #print(j)
                 c_time = time.time()
                 p_time = c_time
@@ -150,6 +161,7 @@ class RTController(uSingleton):
 
                 while d_time <= T_D[i][1] * 60:
                     print("Time Delta: ",d_time)
+                    print("time target: ", T_D[i][1] * 60)
                     cls._currentSP = T_D[i][0]
                     cls._currentTemp = TempController.measure()
                     print(cls._currentSP, cls._currentTemp)
@@ -159,7 +171,7 @@ class RTController(uSingleton):
                         return
                     time.sleep(1)
                     d_time = time.time() - p_time
-                    if d_time % 60 == 0 or d_time > 59.3:
+                    if int(d_time) % 60 == 0:
                         cls._time -= 1 # time is in minutes
                         print("Time Left: " + str(cls._time))
 
@@ -184,6 +196,18 @@ class RTController(uSingleton):
             cls._time = _total
         print("Total Time: " + str(cls._time))
         return cls._time
+
+    def currentCycle(self):
+        return self._currentCyc
+
+    def currentSetpoint(self):
+        return self._currentSP
+
+    def currentTemperature(self):
+        return self._currentTemp
+
+    def currentTotalTime(self):
+        return self._time
 
 if __name__ == '__main__':
     RoutineInterfaceDataModel.test(T=[40, 50], D=[1, 1], C=[1, 1])
