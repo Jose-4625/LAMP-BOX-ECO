@@ -2,11 +2,13 @@
 
 ## Components
 * 3D printed components
-    * CE3_lampBOX circuit tray v1.gcode (Ender 3)
+    * CE3_lampBOX circuit tray v1.gcode (Ender 3 specific gcode)
     * Upiece.stl
     * lampBOX circuit tray v1.stl
     * slider.stl
+    * VisBox.stl
 * 5V/12V breadboard powersupply
+* small piece of insulated wire
 * 4 x 100ohm Resistors
 * 4 x Clear Blue LEDs
 * 6cm x 8cm prototyping PCB
@@ -23,5 +25,15 @@
 * Soldering Iron
 
 ## Assembly Instructions
-1.  3D print all items (STL files)
-2.  
+1. 3D print a single copy of all items (STL files)
+2. You should end with 4 3D printed pieces
+3. gather your electronic components:
+    * 1 x 5V/12V breadboard powersupply
+    * 1 x small piece of insulated wire
+    * 4 x 100ohm Resistors
+    * 4 x Clear Blue LEDs
+    * 1 x (6cm x 8cm) prototyping PCB 
+4. Along one of the short sides of the PCB, press fit the breadboard powersupply into the PCB perforations
+    * if the bottom pins bend its okay, the hole spacing is slightly different from the pin spacing
+5. Take note of which pins on the bottom are ground and which pins are positive, pins of the same polarity are aligned
+6. Following the PCB holes in line with the positive pins, place an LED <cont'd>
