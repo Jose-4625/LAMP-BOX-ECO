@@ -32,8 +32,13 @@
     * 1 x small piece of insulated wire
     * 4 x 100ohm Resistors
     * 4 x Clear Blue LEDs
-    * 1 x (6cm x 8cm) prototyping PCB 
-4. Along one of the short sides of the PCB, press fit the breadboard powersupply into the PCB perforations
+    * 1 x (6cm x 8cm) prototyping PCB
+4. Along one of the short sides of the PCB, press fit the breadboard powersupply into the PCB perforations so that the pins closest to the edge are 3 holes from the edge
     * if the bottom pins bend its okay, the hole spacing is slightly different from the pin spacing
 5. Take note of which pins on the bottom are ground and which pins are positive, pins of the same polarity are aligned
-6. Following the PCB holes in line with the positive pins, place an LED <cont'd>
+6. Following the PCB holes inline with the positive pins, with the LED on the same side as the powersupply, place the longer leg of an LED in the aligned hole, at least 5 holes from the pin (when looking underneath)
+    * Skip 3 holes and place another LED inline with the first
+    * Skip 2 holes and place another LED inline with the others
+    * Skip 3 holes and place another LED inline with the others
+    * See image for top view
+7. To keep LEDs in place while soldering, feed the negative (short) leg of the LED back to the the powersupply side of the PCB and fold it
