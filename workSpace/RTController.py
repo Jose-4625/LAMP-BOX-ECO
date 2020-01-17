@@ -5,10 +5,11 @@ from singletonType import uSingleton
 import gc
 try:
     import _thread
-    from machine import Pin
+    from machine import Pin, PWM
     import max6677
 
 except ImportError:
+    from _machine import Pin, PWM
     pass
 """Proportional-Integral-Derivative Temperature controller minimal implementation in MicroPython"""
 class PID(uSingleton):
