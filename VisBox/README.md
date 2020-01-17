@@ -42,3 +42,12 @@
     * Skip 3 holes and place another LED inline with the others
     * See image for top view
 7. To keep LEDs in place while soldering, feed the negative (short) leg of the LED back to the the powersupply side of the PCB and fold it
+8. 
+
+## Reference Images
+### Top View
+![Top View](/VisBox/top.jpg)
+### Bottom View
+![Bottom View](/VisBox/bottom.jpg)
+### Circuit Diagram
+![Circuit](/VisBox/circuitDiagram.png)
