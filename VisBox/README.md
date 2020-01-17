@@ -26,7 +26,7 @@
 
 ## Assembly Instructions
 1. 3D print a single copy of all items (STL files)
-2. You should end with 4 3D printed pieces
+2. You should end with 5 3D printed pieces
 3. gather your electronic components:
     * 1 x 5V/12V breadboard powersupply
     * 1 x small piece of insulated wire
@@ -42,7 +42,7 @@
     * Skip 3 holes and place another LED inline with the others
     * See image for top view
 7. To keep LEDs in place while soldering, feed the negative (short) leg of the LED back to the the powersupply side of the PCB and fold it
-8. 
+8.
 
 ## Reference Images
 ### Top View
