@@ -169,13 +169,15 @@ class RTController(uSingleton):
                     pid.setPoint = cls._currentSP
                     cls._currentTemp = TempController.measure()
                     pid.calcPID(cls._currentTemp)
-                    print(cls._currentSP, cls._currentTemp, "PID: ", pid.output)
-
+                    #print(cls._currentSP, cls._currentTemp, "PID: ", pid.output)
+                    pwm = max(min(int(pid.output),100),0)
+                    print("Target: %.1f C | Current: %.1f C | PWM: %s %% | PID: %s"%(cls._currentSP, cls._currentTemp, pwm, pid.output))
+                    pmw0 = PWM(Pin(0))
                     if not cls._exit:
                         pass
                     else:
                         return
-                        
+
                     time.sleep(1)
                     d_time = time.time() - p_time
                     if int(d_time) % 60 == 0:
