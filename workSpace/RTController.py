@@ -5,10 +5,11 @@ from singletonType import uSingleton
 import gc
 try:
     import _thread
-    from machine import Pin
+    from machine import Pin, PWM
     import max6677
 
 except ImportError:
+    from _machine import Pin, PWM
     pass
 """Proportional-Integral-Derivative Temperature controller minimal implementation in MicroPython"""
 class PID(uSingleton):
@@ -39,6 +40,7 @@ class PID(uSingleton):
                 self._D = d_err / d_time
             self.p_time, self.p_err = self.c_time, err
             self.output = self._P + (self.i * self._I) + (self.d * self._D)
+
     def settings(self,i_gain=0,p_gain=0,d_gain=0,s_rate=0,w_pro=0):
         if i_gain:
             self.i = i_gain
@@ -150,6 +152,7 @@ class RTController(uSingleton):
         cls._exit = False
         T_D = srt.temp_dur
         cy = srt.cycle
+        pid = PID(1.1, 2, 0.001)
         for i in range(len(cy)):
             #print(i)
             for j in range(cy[i]):
@@ -163,12 +166,18 @@ class RTController(uSingleton):
                     print("Time Delta: ",d_time)
                     print("time target: ", T_D[i][1] * 60)
                     cls._currentSP = T_D[i][0]
+                    pid.setPoint = cls._currentSP
                     cls._currentTemp = TempController.measure()
-                    print(cls._currentSP, cls._currentTemp)
+                    pid.calcPID(cls._currentTemp)
+                    #print(cls._currentSP, cls._currentTemp, "PID: ", pid.output)
+                    pwm = max(min(int(pid.output),100),0)
+                    print("Target: %.1f C | Current: %.1f C | PWM: %s %% | PID: %s"%(cls._currentSP, cls._currentTemp, pwm, pid.output))
+                    pmw0 = PWM(Pin(0))
                     if not cls._exit:
                         pass
                     else:
                         return
+
                     time.sleep(1)
                     d_time = time.time() - p_time
                     if int(d_time) % 60 == 0:
