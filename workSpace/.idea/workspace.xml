@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41eedd10-49ec-4ec0-b1f9-ed7faeb56dee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAMP.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAMP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RTController.py" beforeDir="false" afterPath="$PROJECT_DIR$/RTController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +15,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RTController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
+            <state relative-caret-position="144">
               <caret line="173" column="44" selection-start-line="173" selection-start-column="44" selection-end-line="173" selection-end-column="44" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
@@ -47,6 +44,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -68,10 +68,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="128" />
-    <option name="width" value="1440" />
-    <option name="height" value="773" />
+    <option name="x" value="1981" />
+    <option name="y" value="-27" />
+    <option name="width" value="1728" />
+    <option name="height" value="929" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -112,7 +112,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../evotron" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -283,7 +283,8 @@
       <workItem from="1575644446309" duration="4246000" />
       <workItem from="1576639333591" duration="2283000" />
       <workItem from="1577737236945" duration="25000" />
-      <workItem from="1578353780680" duration="10957000" />
+      <workItem from="1578353780680" duration="11420000" />
+      <workItem from="1578434486015" duration="615000" />
     </task>
     <task id="LOCAL-00001" summary="implemented and tested micropython PID Controller">
       <created>1574655099685</created>
@@ -310,12 +311,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68167000" />
+    <option name="totallyTimeSpent" value="69245000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="1913" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24664879" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30153596" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -323,14 +324,14 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" x="1922" y="30" width="637" height="648" id="Run" order="5" type="WINDOWED" visible="true" weight="0.3489426" />
+      <window_info anchor="bottom" x="1922" y="30" width="637" height="648" id="Run" order="5" type="WINDOWED" weight="0.3489426" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298193" />
       <window_info anchor="bottom" id="Floobits" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info active="true" anchor="bottom" x="737" y="30" width="736" height="833" id="Terminal" order="12" type="WINDOWED" visible="true" weight="0.36746988" />
+      <window_info anchor="bottom" x="1920" y="30" width="638" height="650" id="Terminal" order="12" type="WINDOWED" weight="0.36746988" />
       <window_info anchor="bottom" x="737" y="30" width="736" height="833" id="Python Console" order="13" type="WINDOWED" weight="0.32779455" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -483,7 +484,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RTController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
+        <state relative-caret-position="144">
           <caret line="173" column="44" selection-start-line="173" selection-start-column="44" selection-end-line="173" selection-end-column="44" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />

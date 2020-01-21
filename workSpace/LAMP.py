@@ -39,7 +39,7 @@ def GET_ESP_Data(microWebSrv2, request):
         c_s = rt.currentSetpoint()
         c_tt = rt.currentTotalTime()
 
-        if isinstance(c_t, float):  # Confirm values
+        if isinstance(c_t, (float, int)):  # Confirm values
             temp = '{0:.1f}'.format(c_t)
         else:
             temp = 'Invalid reading.'
@@ -71,7 +71,7 @@ def restart():
     mws = MicroWebSrv2()
     mws.SetEmbeddedConfig()
     mws.AddMimeType('.gz', 'application/x-gzip')
-    mws.BindAddress = ('127.0.0.1', 4000)
+    mws.BindAddress = ('192.168.4.1', 2000)
     mws.StartManaged()
 
     # keep server running
@@ -88,7 +88,7 @@ def restart():
 mws = MicroWebSrv2()
 mws.SetEmbeddedConfig()
 mws.AddMimeType('.gz','application/x-gzip')
-mws.BindAddress = ('127.0.0.1',4000)
+mws.BindAddress = ('192.168.4.1',4000)
 mws.StartManaged()
 
 #keep server running
