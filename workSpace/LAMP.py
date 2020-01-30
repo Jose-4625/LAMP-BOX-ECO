@@ -88,7 +88,8 @@ def restart():
 mws = MicroWebSrv2()
 mws.SetEmbeddedConfig()
 mws.AddMimeType('.gz','application/x-gzip')
-mws.BindAddress = ('192.168.4.1',4000)
+#mws.BindAddress = ('192.168.4.1',2000)
+mws.BindAddress = ('127.0.0.1',2000)
 mws.StartManaged()
 
 #keep server running

@@ -38,7 +38,7 @@
       background-color: #99D4FF;
       border-radius: 25px;
     }
-    .temp, .setpoint, .cycle, .time{
+    .temp, .setpoint, .cycle, .time {
       color: #c82333;
     }
     h1{
@@ -74,7 +74,7 @@
     <h1>LAMP BOX DASHBOARD</h1>
     <br>
     <h1>Current Temp: <h1 class="temp" ></h1> </h1>
-    <h1>Current Setpoint: <h1 class="setpoint"></h1></h1>
+    <h1>Current Setpoint: <h1 class="setpoint" id = "data"></h1></h1>
     <h1>Current Cycle: <h1 class="cycle"></h1></h1>
     <h1>Time Remaining: <h1 class="time"></h1></h1>
 
@@ -304,8 +304,17 @@
       <button type="button" class="btn-lg btn-success" data-dismiss="modal" id="start" onclick="startProcess(); showToggle();">START</button>
       <button type="button" class="btn-lg btn-danger" data-dismiss="modal" id="stop" onclick="showToggle(); stopProcess();">STOP</button>
       <script>
-        var x = document.getElementById("stop");
-        x.style.display = "none";
+        var data = document.getElementById("data");
+        if (data.text == "Invalid reading."){
+          showSTART();
+        }else{
+          var x = document.getElementById("stop");
+          x.style.display = "block";
+          var x = document.getElementById("start");
+          x.style.display = "none"
+        }
+
+        //
       </script>
 
     </div>
