@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41eedd10-49ec-4ec0-b1f9-ed7faeb56dee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAMP.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAMP.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +216,7 @@
       <workItem from="1577737236945" duration="25000" />
       <workItem from="1578353780680" duration="11420000" />
       <workItem from="1578434486015" duration="615000" />
-      <workItem from="1580412777915" duration="3441000" />
+      <workItem from="1580412777915" duration="3612000" />
     </task>
     <task id="LOCAL-00001" summary="implemented and tested micropython PID Controller">
       <created>1574655099685</created>
@@ -240,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575648626164</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixed web interface bug">
+      <created>1580424331271</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580424331271</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,13 +256,18 @@
     <MESSAGE value="implemented and tested micropython PID Controller" />
     <MESSAGE value="implemented and tested micropython _threading for Real-Time Event Controller" />
     <MESSAGE value="Evaluated RT Clock functionality and interaction with other async methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Evaluated RT Clock functionality and interaction with other async methods" />
+    <MESSAGE value="fixed web interface bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed web interface bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="516" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580420677927">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="516" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1580420677927" />
+    <state x="317" y="7" key="CommitChangelistDialog2" timestamp="1580424328509">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="317" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580424328509" />
     <state width="884" height="375" key="GridCell.Tab.0.bottom" timestamp="1580424286177">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -273,6 +284,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="884" height="375" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580424286177" />
+    <state x="360" y="145" key="Vcs.Push.Dialog.v2" timestamp="1580424343927">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="360" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1580424343927" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
