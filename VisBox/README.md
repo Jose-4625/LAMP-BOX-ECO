@@ -27,6 +27,11 @@
 ## Assembly Instructions
 1. 3D print a single copy of all items (STL files)
 2. You should end with 5 3D printed pieces
+    * VisBox Body
+    * VisBox Top
+    * U-piece
+    * Slider
+    * Circuit tray
 3. gather your electronic components:
     * 1 x 5V/12V breadboard powersupply
     * 1 x small piece of insulated wire
@@ -41,8 +46,13 @@
     * Skip 2 holes and place another LED inline with the others
     * Skip 3 holes and place another LED inline with the others
     * See image for top view
-7. To keep LEDs in place while soldering, feed the negative (short) leg of the LED back to the the powersupply side of the PCB and fold it
-8.
+7. To keep LEDs in place while soldering, feed the negative (short) leg of the LED back to the the powersupply side of the PCB and fold it (See top view)
+8. Solder the power supply pins which are farthest from the LEDS to the PCB (See bottom view)
+    * Ensure that the powersupply is securely soldered to the PCB
+9. Fold the LED legs that are aligned with the positive pin towards the positive pin (See bottom view)
+    * the length of the legs should cause overlap, this overlap will be used to connect the LEDs
+10. 
+
 
 ## Reference Images
 ### Top View
