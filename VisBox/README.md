@@ -56,7 +56,10 @@
     * See bottom view
 12. Solder the looped resistor leg to the LED leg it is passing under
 13. Cut off the extra material of the soldered resistor leg
-14. Bend the other legs of the resistors at 90 degree angles towards the other pair legs 
+14. Bend the other legs of the resistors at 90 degree angles towards the powersupply
+15. Solder the at the overlap of the legs
+16. Solder the leg closest to the powersupply pins to the negative pin
+    * 
 
 
 ## Reference Images
