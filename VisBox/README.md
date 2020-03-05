@@ -59,7 +59,8 @@
 14. Bend the other legs of the resistors at 90 degree angles towards the powersupply
 15. Solder the at the overlap of the legs
 16. Solder the leg closest to the powersupply pins to the negative pin
-    * 
+    * If the last leg of of the LEDs is too short to reach the pin, add a piece of wire between the end of the resistor leg and the negative pin
+17. 
 
 
 ## Reference Images
