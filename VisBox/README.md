@@ -51,7 +51,12 @@
     * Ensure that the powersupply is securely soldered to the PCB
 9. Fold the LED legs that are aligned with the positive pin towards the positive pin (See bottom view)
     * the length of the legs should cause overlap, this overlap will be used to connect the LEDs
-10. 
+10. Solder the overlapping legs of the LEDs and solder the leg closest to the powersupply to the positive pin
+11. Pass one leg a resistor through each of the loops made by passing the negative lead of the LED to the front of the PCB
+    * See bottom view
+12. Solder the looped resistor leg to the LED leg it is passing under
+13. Cut off the extra material of the soldered resistor leg
+14. Bend the other legs of the resistors at 90 degree angles towards the other pair legs 
 
 
 ## Reference Images
