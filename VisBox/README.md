@@ -15,6 +15,7 @@
 * Light filter gels
     * 2 x orange gel
     * 1 x yellow gel
+* Sticky tape
 ## Links to components
 * [100 ohm Resistors](https://www.amazon.com/100-Ohm-Resistors-Watt-Pieces/dp/B07JJQY958/ref=sr_1_5?crid=3UTUWQAA1N2VT&keywords=100+ohm+resistor+1%2F4+watt&qid=1578514668&sprefix=100+ohm%2Caps%2C190&sr=8-5)
 * [Breadboard Powersupply](https://www.amazon.com/HiLetgo-Supply-Module-Prototype-Breadboard/dp/B00HJ6AE72/ref=sxin_2_ac_d_rm?ac_md=0-0-YnJlYWRib2FyZCBwb3dlciBzdXBwbHk%3D-ac_d_rm&crid=3J5C8DEBMW3ML&cv_ct_cx=breadboard+power+supply&keywords=breadboard+power+supply&pd_rd_i=B00HJ6AE72&pd_rd_r=70b07c48-81e5-4840-aad6-6a416c62ceee&pd_rd_w=lLqGs&pd_rd_wg=Hg29M&pf_rd_p=e2f20af2-9651-42af-9a45-89425d5bae34&pf_rd_r=PQ1VN9FW095VK0XPPVM3&psc=1&qid=1578514849&sprefix=breadboard+power%2Caps%2C190)
@@ -60,7 +61,13 @@
 15. Solder the at the overlap of the legs
 16. Solder the leg closest to the powersupply pins to the negative pin
     * If the last leg of of the LEDs is too short to reach the pin, add a piece of wire between the end of the resistor leg and the negative pin
-17. 
+17. Assemble the 3D-printed parts by first placing the lower box portion on a flat surface and them placing the lip on top
+18. With the lid on top, attached the U-piece to the lid by either glueing or using a soldering iron to weld the lid ans U-piece together.
+    * Ensure that the slider piece and move freely in and out of the U-piece while the lid and U-piece are bing attached
+19. Align the holes on the bottom of the box to the LEDs on the PCB and use tape to secure and level the box
+20. Create the proper light filter by cutting out 2 orange filters and 1 yellow filter so that they cover the viewport on the side of the box
+    * Layer the filters: Orange-Yellow-Orange
+21. Finally, set the powersupply to 5V using the jumper on the board, slide the PCB into the circuit tray with the inputs going under the hood and attach a power source to the powersupply board, either USB or 12V barrel jack!
 
 
 ## Reference Images
